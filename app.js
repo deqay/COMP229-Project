@@ -1,7 +1,8 @@
+const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const config = require('./controllers/config');
-const bodyParser = require('body-parser');
+
 
 const bcrypt = require('bcrypt');
 
@@ -11,6 +12,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 
 const userRoutes = require('./routes/userRoutes');

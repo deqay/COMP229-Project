@@ -1,12 +1,20 @@
 
 const User = require('../models/user');
-
+const bcrypt = require('bcrypt');
 
 //create user 
 
 const createUser = async (req, res) => {
     try {
-        const newUser = new User(req.body);
+        const { name, email, password } = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        const newUser = new User({
+            name,
+            email,
+            password: hashedPassword,
+        });
+
         await newUser.save();
         res.status(201).json(newUser);
     } catch (error) {
@@ -80,19 +88,23 @@ const deleteUser = async (req, res) => {
 };
 
 
-
 //user sign in 
 
 const signIn = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
+
         if (!user) {
             return res.status(404).json({ error: 'User not found' });
         }
-        if (user.password !== password) {
+
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch) {
             return res.status(401).json({ error: 'Incorrect password' });
         }
+
         res.status(200).json({ message: 'Successfully signed in!' });
     } catch (error) {
         console.error(error);
