@@ -1,0 +1,44 @@
+/* WriteReview.css */
+
+.write-review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .review-form {
+    max-width: 400px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  
+  .review-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .review-item h4 {
+    margin-bottom: 5px;
+  }
+  
+  .review-item p {
+    margin: 0;
+  }
+
+  
+  
+
+  
