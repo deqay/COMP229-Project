@@ -14,14 +14,17 @@ const MyReviews = () => {
 
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://vistara.onrender.com/api/users/me",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -36,7 +39,7 @@ const MyReviews = () => {
   const getReview = async (userId) => {
     try {
       const response = await Axios.get(
-        `http://localhost:8080/api/reviews/usersearch?searchString=${userId}`
+        `https://vistara.onrender.com/api/reviews/usersearch?searchString=${userId}`
       );
       setReview(response.data);
       console.log(response.data);
@@ -47,7 +50,7 @@ const MyReviews = () => {
   const getProduct = async (productId) => {
     try {
       const response = await Axios.get(
-        `http://localhost:8080/api/products/${productId}`
+        `https://vistara.onrender.com/api/products/${productId}`
       );
       setProduct(response.data);
     } catch (error) {
@@ -91,7 +94,7 @@ const MyReviews = () => {
   const handleDelete = async (reviewId, userId) => {
     try {
       const response = await Axios.delete(
-        `http://localhost:8080/api/reviews/${reviewId}`
+        `https://vistara.onrender.com/api/reviews/${reviewId}`
       );
 
       if (response.status === 200) {

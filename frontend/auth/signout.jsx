@@ -8,7 +8,7 @@ const SignOut = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/users/signout", {
+    fetch("https://vistara.onrender.com/api/users/signout", {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -26,7 +26,7 @@ const WriteReview = () => {
   const getProduct = async () => {
     try {
       const response = await Axios.get(
-        `http://localhost:8080/api/products/${businessId}`
+        `https://vistara.onrender.com/api/products/${businessId}`
       );
       setProduct(response.data);
     } catch (error) {
@@ -36,7 +36,7 @@ const WriteReview = () => {
   const getReview = async () => {
     try {
       const response = await Axios.get(
-        `http://localhost:8080/api/reviews/search?searchString=${businessId}`
+        `https://vistara.onrender.com/api/reviews/search?searchString=${businessId}`
       );
       setReview(response.data);
     } catch (error) {
@@ -45,14 +45,17 @@ const WriteReview = () => {
   };
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://vistara.onrender.com/api/users/me",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
@@ -92,7 +95,7 @@ const WriteReview = () => {
     };
 
     try {
-      const response = await fetch("http://localhost:8080/api/reviews", {
+      const response = await fetch("https://vistara.onrender.com/api/reviews", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

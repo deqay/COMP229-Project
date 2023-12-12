@@ -16,7 +16,9 @@ const FeaturedBusiness = () => {
 
   const getData = async () => {
     try {
-      const response = await Axios.get("http://localhost:8080/api/products");
+      const response = await Axios.get(
+        "https://vistara.onrender.com/api/products"
+      );
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -25,7 +27,7 @@ const FeaturedBusiness = () => {
   const getReview = async (productId) => {
     try {
       const response = await Axios.get(
-        `http://localhost:8080/api/reviews/search?searchString=${productId}`
+        `https://vistara.onrender.com/api/reviews/search?searchString=${productId}`
       );
       setReview(response.data);
       console.log(response.data);

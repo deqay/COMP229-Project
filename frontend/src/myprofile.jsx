@@ -5,14 +5,17 @@ const MyProfile = () => {
   const [user, setUser] = useState([]);
   const getUser = async () => {
     try {
-      const response = await fetch("http://localhost:8080/api/users/me", {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-      });
+      const response = await fetch(
+        "https://vistara.onrender.com/api/users/me",
+        {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+        }
+      );
 
       if (response.ok) {
         const data = await response.json();
