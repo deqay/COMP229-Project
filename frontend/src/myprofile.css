@@ -1,0 +1,30 @@
+/* MyProfile.css */
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card {
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.profile-header {
+  background-color: rgb(255, 81, 81);
+  color: #fff;
+  padding: 16px;
+  text-align: center;
+}
+
+.profile-content {
+  color: black;
+  padding: 16px;
+}
+
+/* Add more styles as needed */

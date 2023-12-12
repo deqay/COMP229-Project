@@ -1,0 +1,58 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&family=Comfortaa:wght@300&family=Press+Start+2P&family=Saira:wght@100;400&family=Titillium+Web:wght@200&display=swap');
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #ff9d9d;
+    color: #fff;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+
+.footer-logo img {
+    max-width: 100px;
+}
+
+
+.footer-links ul {
+    list-style: none;
+    display: flex;
+}
+
+.footer-links li {
+    margin-right: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #574f4f;
+    font-weight: bold;
+    font-family: 'Comfortaa', cursive;
+}
+
+
+.social-icons {
+    display: flex;
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 10px;
+    color: #ff5d5d;
+}
+.pin-icon{
+    color: #ff5d5d;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #9fa8a0;
+    color: #fff;
+    font-family: 'Saira', sans-serif;
+}
+
+  

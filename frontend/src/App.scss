@@ -1,0 +1,67 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Press+Start+2P&family=Titillium+Web:wght@200&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor:hsl(0, 0%, 100%);
+  --blackColor:hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+
+/*Font and Typography */
+--biggestFontSize: 2.5rem;
+--h1FontSize: 2rem;
+--h2FontSize: 1.25rem;
+--h3FontSize: 1rem;
+--normalFontSize: 0.938rem;
+--smallFontSize: 0.813rem;
+--smallestFontSize: 0.75rem;
+--borderRadius: 3rem;
+}
+
+body{
+    background: var(--bgColor);
+}
+
+.flex{
+    display: flex;
+    align-items: center;
+
+}
+
+.grid{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+p{
+    font-size: var(--smallFontSize);
+}
+html{
+    font-size: 90%;
+}
+li{
+    list-style: none;
+}
+img, video{
+    height:auto;
+    width:100%;
+}
+.btn{
+    border:none;
+    outline: none;
+    border-radius: var(--borderRadius);
+    padding: 0.8rem 1rem;
+    color:var(--whiteColor);
+    background: var(--primaryColor);
+
+
+}
