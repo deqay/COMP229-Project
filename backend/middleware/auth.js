@@ -3,24 +3,25 @@ const catchAsyncErrors = require("./catchAsyncError");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-const extractToken = (rawToken) => {
+const extractToken = (rawHeaders) => {
   // Check if rawToken is an array
-  if (!Array.isArray(rawToken)) {
-    return null;
-  }
+  const cookiesHeaderIndex = rawHeaders.findIndex(
+    (header) => header === "Cookies"
+  );
 
-  const cookiesIndex = rawToken.indexOf("Cookies");
+  if (cookiesHeaderIndex !== -1 && cookiesHeaderIndex + 1 < rawHeaders.length) {
+    // Get the value of the 'Cookies' header
+    const cookiesValue = rawHeaders[cookiesHeaderIndex + 1];
 
-  if (cookiesIndex !== -1 && cookiesIndex + 1 < rawToken.length) {
-    const cookiesValue = rawToken[cookiesIndex + 1];
-    const match = cookiesValue.match(/token=([^;]+)/);
-
-    if (match) {
-      return match[1];
+    // Extract the token from the 'Cookies' value
+    const tokenMatch = /token\s*=\s*([^;]+)/.exec(cookiesValue);
+    if (tokenMatch) {
+      const token = tokenMatch[1];
+      return token;
     }
   }
 
-  return null;
+  return null; // Token not found
 };
 
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
