@@ -11,7 +11,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://vistara-f.onrender.com",
+    origin: ["http://localhost:8000", "https://vistara-f.onrender.com"],
     credentials: true,
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   })
