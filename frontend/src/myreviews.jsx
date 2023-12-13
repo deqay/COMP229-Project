@@ -12,6 +12,8 @@ const MyReviews = () => {
   const [product, setProduct] = useState([]);
   const [review, setReview] = useState([]);
 
+  const token1 = localStorage.getItem("token");
+
   const getUser = async () => {
     try {
       const response = await fetch(
@@ -21,6 +23,7 @@ const MyReviews = () => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
+            Cookies: `token = ${token1}`,
           },
           credentials: "include",
         }
@@ -93,8 +96,17 @@ const MyReviews = () => {
 
   const handleDelete = async (reviewId, userId) => {
     try {
-      const response = await Axios.delete(
-        `https://vistara.onrender.com/api/reviews/${reviewId}`
+      const response = await fetch(
+        `https://vistara.onrender.com/api/reviews/${reviewId}`,
+        {
+          method: "DELETE",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
+            Cookies: `token = ${token1}`,
+          },
+          credentials: "include",
+        }
       );
 
       if (response.status === 200) {

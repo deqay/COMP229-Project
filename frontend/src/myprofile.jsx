@@ -3,6 +3,9 @@ import "./myprofile.css";
 
 const MyProfile = () => {
   const [user, setUser] = useState([]);
+
+  const token1 = localStorage.getItem("token");
+
   const getUser = async () => {
     try {
       const response = await fetch(
@@ -12,6 +15,7 @@ const MyProfile = () => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
+            Cookies: `token = ${token1}`,
           },
           credentials: "include",
         }

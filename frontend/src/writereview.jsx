@@ -23,6 +23,8 @@ const WriteReview = () => {
   const [review, setReview] = useState([]);
   const [user, setUser] = useState([]);
 
+  const token1 = localStorage.getItem("token");
+
   const getProduct = async () => {
     try {
       const response = await Axios.get(
@@ -52,6 +54,7 @@ const WriteReview = () => {
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
+            Cookies: `token = ${token1}`,
           },
           credentials: "include",
         }
