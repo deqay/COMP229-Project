@@ -4,9 +4,22 @@ const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
 exports.isAuthenticatedUser = catchAsyncErrors(async (req, res, next) => {
-  const token = req.rawHeaders.Token;
-  console.log("raw", req.rawHeaders);
-  console.log(req);
+  const rawToken = req.rawHeaders;
+  const token = extractToken(rawToken);
+  const extractToken = (rawToken) => {
+    const cookiesIndex = rawToken.indexOf("Cookies");
+
+    if (cookiesIndex !== -1 && cookiesIndex + 1 < rawToken.length) {
+      const cookiesValue = rawToken[cookiesIndex + 1];
+      const match = cookiesValue.match(/token=([^;]+)/);
+
+      if (match) {
+        return match[1];
+      }
+    }
+
+    return null;
+  };
   console.log(token);
   if (!token) {
     return next(new ErrorHandler("Please login to update the profile", 401));
