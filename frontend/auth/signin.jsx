@@ -30,6 +30,7 @@ const SignIn = () => {
 
       const data = await signin(user);
       localStorage.setItem("token", data.token);
+      document.cookie = `token = ${data.token}`;
       if (data.error) {
         setValues({ ...values, error: data.error });
       } else {
